@@ -24,7 +24,6 @@ const resolvers = {
                 .select('-__v -password')
         },
 
-
     },
     Mutation: {
         addUser: async (parent, args) => {
