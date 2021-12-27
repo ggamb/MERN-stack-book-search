@@ -59,7 +59,7 @@ const resolvers = {
                 return updatedUser;
             }
 
-            throw new AuthenticationError('You need to be logged in!');
+            throw new AuthenticationError('Unable to save book!');
         },
         removeBook: async (parent, { bookId }, context) => {
             if(context.user) {
@@ -72,7 +72,7 @@ const resolvers = {
                 return updatedUser;
             }
 
-            throw new AuthenticationError('You need to be logged in!');
+            throw new AuthenticationError('Unable to remove saved book!');
         }
     }
 };
