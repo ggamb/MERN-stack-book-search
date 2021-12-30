@@ -6,7 +6,8 @@ import Auth from '../utils/auth';
 import { searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 
-import {SAVE_BOOK} from '../utils/mutations';
+import { GET_ME } from '../utils/queries';
+import { SAVE_BOOK } from '../utils/mutations';
 
 const SearchBooks = () => {
   // create state for holding returned google api data
@@ -71,13 +72,17 @@ const SearchBooks = () => {
     }
 
     try {
-      const {data} = await saveBook({
-        variables: {savedBooks: bookToSave},
+      await saveBook({
+        variables: { book: bookToSave },
+        update: cache => {
+          const { me } = cache.readQuery({ query: GET_ME });
+          cache.writeQuery({ 
+            query: GET_ME, 
+            data: { me: { ...me, savedBooks: [...me.savedBooks, bookToSave] } } 
+          })
+        }
       });
 
-      
-
-      //Auth.login(data.saveBook.token);
 
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
