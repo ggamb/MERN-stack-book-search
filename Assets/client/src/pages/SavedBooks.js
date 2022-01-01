@@ -13,9 +13,12 @@ const SavedBooks = () => {
   const [deleteBook] = useMutation(REMOVE_BOOK);
   const userData = data?.me || {};
 
+  console.log('userdata', userData)
+
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log(bookId)
 
     if (!token) {
       return false;
@@ -26,13 +29,12 @@ const SavedBooks = () => {
         variables: {bookId: bookId},
         update: cache => {
           const data = cache.readQuery({ query: GET_ME });
-          const userDataCache = data.me;
           const savedBooksCache = userData.savedBooks;
           const updatedBookCache = savedBooksCache.filter((book) => book.bookId !== bookId);
           data.me.savedBooks = updatedBookCache;
           cache.writeQuery({ 
             query: GET_ME, 
-            data: {...data.me.savedBooks}
+            data: {data: {...data.me.savedBooks}}
           })
         }
       });
