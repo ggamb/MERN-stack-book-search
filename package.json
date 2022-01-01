@@ -1,22 +1,21 @@
 {
-  "name": "solid-broccoli",
+  "name": "googlebooks-app",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000M\u0000E\u0000R\u0000N\u0000-\u0000s\u0000t\u0000a\u0000c\u0000k\u0000-\u0000b\u0000o\u0000o\u0000k\u0000-\u0000s\u0000e\u0000a\u0000r\u0000c\u0000h\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "description": "",
+  "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ggamb/MERN-stack-book-search.git"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ggamb/MERN-stack-book-search/issues"
+  "devDependencies": {
+    "concurrently": "^5.1.0"
   },
-  "homepage": "https://github.com/ggamb/MERN-stack-book-search#readme"
+  "dependencies": {
+    "apollo-server-express": "^2.15.0"
+  }
 }
