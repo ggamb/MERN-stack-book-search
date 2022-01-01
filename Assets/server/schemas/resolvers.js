@@ -16,11 +16,11 @@ const resolvers = {
             throw new AuthenticationError('You are not logged in!');
         },
         users: async () => {
-            return User.find()
+            return await User.find()
                 .select('-__v -password');
         },
         user: async (parent, { username }) => {
-            return User.findOne({ username })
+            return await User.findOne({ username })
                 .select('-__v -password');
         },
     },
