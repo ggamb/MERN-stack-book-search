@@ -9,7 +9,7 @@
 * [Questions](#questions)
 
 ## Description
-I refactored this fully functioning Google Books RESTful API search engine and refactored the code into a MERN Stack GraphQL API built with Apollo Server. Specifically, I ser up the Apollo Server to use GraphQL queries and mutations, modified the authentication middleware to work with GraphQL, created an Apollo Provider to work with the Apollo Server, and deployed the working application to Heroku.
+I refactored this fully functioning Google Books RESTful API search engine code into a MERN Stack GraphQL API built with Apollo Server. Specifically, I ser up the Apollo Server to use GraphQL queries and mutations, modified the authentication middleware to work with GraphQL, created an Apollo Provider to work with the Apollo Server, and deployed the working application to Heroku.
 
 Users can search for books and see a picture of the cover along with author(s) and a description of the book. If the user logs in, the user can save the book to their account and view their saved books. Saved books can be removed using the "remove book" button.
 
